@@ -9,8 +9,9 @@ import UIKit
 
 final class AdditionalToDoViewController: UIViewController {
     
-    private var additionalButton: UIBarButtonItem!
     @IBOutlet private weak var AdditionaltextField: UITextField!
+    
+    private var additionalButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
