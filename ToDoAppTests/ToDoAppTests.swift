@@ -10,12 +10,6 @@ import XCTest
 
 class ToDoAppTests: XCTestCase {
     
-    func testAdd() {
-        var reonAge = 21
-        reonAge += 1
-        XCTAssertEqual(reonAge, 22)
-    }
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
