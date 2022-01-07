@@ -48,9 +48,9 @@ extension AdditionalToDoViewController {
 }
 
 // MARK: - @objc
-extension AdditionalToDoViewController {
+private extension AdditionalToDoViewController {
     
-    @objc private func didTapAdditionalButton() {
+    @objc func didTapAdditionalButton() {
         navigationController?.popViewController(animated: true)
     }
     

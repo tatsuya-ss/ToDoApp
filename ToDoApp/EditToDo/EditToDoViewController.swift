@@ -50,9 +50,9 @@ extension EditToDoViewController {
 }
 
 // MARK: - @objc
-extension EditToDoViewController {
+private extension EditToDoViewController {
     
-    @objc private func didTapEditButton() {
+    @objc func didTapEditButton() {
         navigationController?.popViewController(animated: true)
     }
     
