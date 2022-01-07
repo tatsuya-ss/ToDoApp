@@ -37,7 +37,6 @@ extension AdditionalToDoViewController {
         appearance.backgroundColor = .systemBackground
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationItem.title = "追加"
         
         additionalButton = UIBarButtonItem(title: "追加",
                                            style: .done,
