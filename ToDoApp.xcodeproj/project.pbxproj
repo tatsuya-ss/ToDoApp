@@ -13,6 +13,8 @@
 		754E98332785990200CB579B /* AdditionalToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 754E98312785990200CB579B /* AdditionalToDoViewController.xib */; };
 		754E98372785992F00CB579B /* EditToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754E98352785992F00CB579B /* EditToDoViewController.swift */; };
 		754E98382785992F00CB579B /* EditToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 754E98362785992F00CB579B /* EditToDoViewController.xib */; };
+		754E983C2787D98A00CB579B /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754E983A2787D98A00CB579B /* ToDoListTableViewCell.swift */; };
+		754E983D2787D98A00CB579B /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 754E983B2787D98A00CB579B /* ToDoListTableViewCell.xib */; };
 		7560480E2761665600C47A54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560480D2761665600C47A54 /* AppDelegate.swift */; };
 		756048102761665600C47A54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560480F2761665600C47A54 /* SceneDelegate.swift */; };
 		756048172761665700C47A54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756048162761665700C47A54 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		754E98312785990200CB579B /* AdditionalToDoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionalToDoViewController.xib; sourceTree = "<group>"; };
 		754E98352785992F00CB579B /* EditToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditToDoViewController.swift; sourceTree = "<group>"; };
 		754E98362785992F00CB579B /* EditToDoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditToDoViewController.xib; sourceTree = "<group>"; };
+		754E983A2787D98A00CB579B /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewCell.swift; sourceTree = "<group>"; };
+		754E983B2787D98A00CB579B /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		7560480A2761665600C47A54 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7560480D2761665600C47A54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7560480F2761665600C47A54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			children = (
 				754E982B278598B900CB579B /* ToDoListViewController.swift */,
 				754E982C278598B900CB579B /* ToDoListViewController.xib */,
+				754E98392787D96D00CB579B /* Cells */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -109,6 +114,15 @@
 				754E98362785992F00CB579B /* EditToDoViewController.xib */,
 			);
 			path = EditToDo;
+			sourceTree = "<group>";
+		};
+		754E98392787D96D00CB579B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				754E983A2787D98A00CB579B /* ToDoListTableViewCell.swift */,
+				754E983B2787D98A00CB579B /* ToDoListTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		756048012761665600C47A54 = {
@@ -272,6 +286,7 @@
 				756048172761665700C47A54 /* Assets.xcassets in Resources */,
 				754E98332785990200CB579B /* AdditionalToDoViewController.xib in Resources */,
 				754E982E278598B900CB579B /* ToDoListViewController.xib in Resources */,
+				754E983D2787D98A00CB579B /* ToDoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				754E98372785992F00CB579B /* EditToDoViewController.swift in Sources */,
+				754E983C2787D98A00CB579B /* ToDoListTableViewCell.swift in Sources */,
 				7560480E2761665600C47A54 /* AppDelegate.swift in Sources */,
 				754E982D278598B900CB579B /* ToDoListViewController.swift in Sources */,
 				756048102761665600C47A54 /* SceneDelegate.swift in Sources */,

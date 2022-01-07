@@ -12,9 +12,15 @@ final class ToDoListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var additionalButton: UIButton!
     
+    private var todos = [
+    "大学の課題をやる",
+    "RxSwiftを学習する"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        setupTableView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,6 +43,23 @@ final class ToDoListViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource
+extension ToDoListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        todos.count
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.identifier, for: indexPath) as? ToDoListTableViewCell else { fatalError("ToDoListTableViewCellがありません") }
+        cell.configure(todo: todos[indexPath.item])
+        return cell
+    }
+    
+}
+
 // MARK: - setup
 extension ToDoListViewController {
     
@@ -47,6 +70,12 @@ extension ToDoListViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.title = "ToDo"
+    }
+    
+    private func setupTableView() {
+        tableView.register(ToDoListTableViewCell.nib,
+                           forCellReuseIdentifier: ToDoListTableViewCell.identifier)
+        tableView.dataSource = self
     }
 
 }
