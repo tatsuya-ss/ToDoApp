@@ -11,10 +11,13 @@ final class EditToDoViewController: UIViewController {
 
     @IBOutlet private weak var editTextField: UITextField!
     
+    private var editButton: UIBarButtonItem!
+    
     private var todo = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         setupTextField()
     }
     
@@ -32,8 +35,25 @@ final class EditToDoViewController: UIViewController {
 // MARK: - setup
 extension EditToDoViewController {
     
+    private func setupNavigation() {
+        editButton = UIBarButtonItem(title: "編集",
+                                     style: .done,
+                                    target: self,
+                                     action: #selector(didTapEditButton))
+        navigationItem.rightBarButtonItem = editButton
+    }
+    
     private func setupTextField() {
         editTextField.text = todo
+    }
+    
+}
+
+// MARK: - @objc
+extension EditToDoViewController {
+    
+    @objc private func didTapEditButton() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
