@@ -43,6 +43,17 @@ final class ToDoListViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDelegate
+extension ToDoListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        let editToDoVC = EditToDoViewController(todo: todos[indexPath.item])
+        navigationController?.pushViewController(editToDoVC, animated: true)
+    }
+    
+}
+
 // MARK: - UITableViewDataSource
 extension ToDoListViewController: UITableViewDataSource {
     
@@ -76,6 +87,7 @@ extension ToDoListViewController {
         tableView.register(ToDoListTableViewCell.nib,
                            forCellReuseIdentifier: ToDoListTableViewCell.identifier)
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
 }
