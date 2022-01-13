@@ -52,6 +52,7 @@ extension ToDoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         let editToDoVC = EditToDoViewController(todo: todos[indexPath.item])
+        editToDoVC.delegate = self
         navigationController?.pushViewController(editToDoVC, animated: true)
     }
     
@@ -78,6 +79,15 @@ extension ToDoListViewController: UITableViewDataSource {
 extension ToDoListViewController: AdditionalToDoVCDelegate {
     
     func onClickedAdditionalButton() {
+        self.tableView.reloadData()
+    }
+    
+}
+
+// MARK: - EditToDoVCDelegate
+extension ToDoListViewController: EditToDoVCDelegate {
+    
+    func onClickedEditButton() {
         self.tableView.reloadData()
     }
     

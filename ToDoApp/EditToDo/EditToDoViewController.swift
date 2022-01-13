@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol EditToDoVCDelegate {
+    func onClickedEditButton()
+}
+
 final class EditToDoViewController: UIViewController {
 
     @IBOutlet private weak var editTextField: UITextField!
     
     private var editButton: UIBarButtonItem!
     private var selectedTodo: ToDo
+    var delegate: EditToDoVCDelegate?
+    private let toDoUseCase = ToDoUseCaseImpl(
+        toDoRepository: ToDoRepositoryImpl()
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +63,12 @@ extension EditToDoViewController {
 private extension EditToDoViewController {
     
     @objc func didTapEditButton() {
+        guard let updatedText = editTextField.text else { return }
+        let toDo = ToDo(text: updatedText,
+                        order: selectedTodo.order,
+                        identifier: selectedTodo.identifier)
+        toDoUseCase.update(toDo: toDo)
+        delegate?.onClickedEditButton()
         navigationController?.popViewController(animated: true)
     }
     
