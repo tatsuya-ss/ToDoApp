@@ -12,10 +12,12 @@ final class ToDoListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var additionalButton: UIButton!
     
-    private var todos = [
-    "大学の課題をやる",
-    "RxSwiftを学習する"
-    ]
+    private let toDoUseCase = ToDoUseCaseImpl(
+        toDoRepository: ToDoRepositoryImpl()
+    )
+    private var todos: [ToDo] {
+        toDoUseCase.toDos
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ final class ToDoListViewController: UIViewController {
     
     @IBAction func didTapAdditionalButton(_ sender: Any) {
         let additionalToDoVC = AdditionalToDoViewController()
+        additionalToDoVC.delegate = self
         navigationController?.pushViewController(additionalToDoVC, animated: true)
     }
     
@@ -65,8 +68,17 @@ extension ToDoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.identifier, for: indexPath) as? ToDoListTableViewCell else { fatalError("ToDoListTableViewCellがありません") }
-        cell.configure(todo: todos[indexPath.item])
+        cell.configure(todoText: todos[indexPath.item].text)
         return cell
+    }
+    
+}
+
+// MARK: - AdditionalToDoVCDelegate
+extension ToDoListViewController: AdditionalToDoVCDelegate {
+    
+    func onClickedAdditionalButton() {
+        self.tableView.reloadData()
     }
     
 }

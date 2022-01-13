@@ -12,8 +12,7 @@ final class EditToDoViewController: UIViewController {
     @IBOutlet private weak var editTextField: UITextField!
     
     private var editButton: UIBarButtonItem!
-    
-    private var todo = ""
+    private var selectedTodo: ToDo
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +20,12 @@ final class EditToDoViewController: UIViewController {
         setupTextField()
     }
     
-    init(todo: String) {
-        super.init(nibName: String(describing: EditToDoViewController.self), bundle: nil)
-        self.todo = todo
+    init(todo: ToDo) {
+        self.selectedTodo = todo
+        super.init(
+            nibName: String(describing: EditToDoViewController.self),
+            bundle: nil
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +46,7 @@ extension EditToDoViewController {
     }
     
     private func setupTextField() {
-        editTextField.text = todo
+        editTextField.text = selectedTodo.text
     }
     
 }

@@ -9,4 +9,6 @@ import Foundation
 
 struct ToDo {
     let text: String
+    let order: Int
+    let identifier: String
 }

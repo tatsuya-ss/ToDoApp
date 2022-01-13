@@ -11,4 +11,10 @@ import RealmSwift
 // Realmに依存したToDoTextモデル
 final class ToDoRealm: Object {
     @objc dynamic var text: String = ""
+    @objc dynamic var order: Int = 0
+    @objc dynamic var identifier = UUID().uuidString
+
+    override class func primaryKey() -> String? {
+        return "identifier"
+    }
 }

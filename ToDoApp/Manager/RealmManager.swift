@@ -69,8 +69,8 @@ final class RealmManager {
 private extension String {
     
     enum Constant: String {
-        case order
         case identifier
+        case order
     }
     
     static var order: String {

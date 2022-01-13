@@ -8,7 +8,10 @@
 import Foundation
 
 protocol ToDoUseCase {
+    var toDos: [ToDo] { get }
     func save(toDo: ToDo)
+    func delete(toDo: ToDo)
+    func update(toDo: ToDo)
 }
 
 final class ToDoUseCaseImpl: ToDoUseCase {
@@ -19,8 +22,20 @@ final class ToDoUseCaseImpl: ToDoUseCase {
         self.toDoRepository = toDoRepository
     }
     
+    var toDos: [ToDo] {
+        toDoRepository.readAll()
+    }
+    
     func save(toDo: ToDo) {
         toDoRepository.create(toDo: toDo)
+    }
+    
+    func delete(toDo: ToDo) {
+        toDoRepository.delete(toDo: toDo)
+    }
+    
+    func update(toDo: ToDo) {
+        toDoRepository.update(toDo: toDo)
     }
     
 }
