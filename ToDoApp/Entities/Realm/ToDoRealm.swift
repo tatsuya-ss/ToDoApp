@@ -10,5 +10,5 @@ import RealmSwift
 
 // Realmに依存したToDoTextモデル
 final class ToDoRealm: Object {
-    let text: String = ""
+    @objc dynamic var text: String = ""
 }
