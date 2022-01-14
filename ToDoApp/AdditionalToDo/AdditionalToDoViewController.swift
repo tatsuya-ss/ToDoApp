@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol AdditionalToDoVCDelegate {
+    func onClickedAdditionalButton()
+}
+
 final class AdditionalToDoViewController: UIViewController {
     
     @IBOutlet private weak var AdditionaltextField: UITextField!
     
     private var additionalButton: UIBarButtonItem!
+    private let toDoUseCase = ToDoUseCaseImpl(
+        toDoRepository: ToDoRepositoryImpl()
+    )
+    var delegate: AdditionalToDoVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +59,12 @@ extension AdditionalToDoViewController {
 private extension AdditionalToDoViewController {
     
     @objc func didTapAdditionalButton() {
+        guard let text = AdditionaltextField.text else { return }
+        let toDo = ToDo(text: text,
+                        order: toDoUseCase.toDos.count,
+                        identifier: UUID().uuidString)
+        toDoUseCase.save(toDo: toDo)
+        delegate?.onClickedAdditionalButton()
         navigationController?.popViewController(animated: true)
     }
     

@@ -21,7 +21,7 @@ final class ToDoListTableViewCell: UITableViewCell {
         
     }
     
-    func configure(todo: String) {
-        textLabel?.text = todo
+    func configure(todoText: String) {
+        textLabel?.text = todoText
     }
 }

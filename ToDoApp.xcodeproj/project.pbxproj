@@ -26,6 +26,11 @@
 		7560482F2761665700C47A54 /* ToDoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560482E2761665700C47A54 /* ToDoAppUITests.swift */; };
 		756048312761665700C47A54 /* ToDoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756048302761665700C47A54 /* ToDoAppUITestsLaunchTests.swift */; };
 		80992C7DBC69B1E0778E914B /* Pods_ToDoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81B9734B4F242EDE1E81E95 /* Pods_ToDoApp.framework */; };
+		AB921E712790E01400D4C150 /* ToDoUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB921E702790E01400D4C150 /* ToDoUseCaseImpl.swift */; };
+		AB921E732790E01E00D4C150 /* ToDoRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB921E722790E01E00D4C150 /* ToDoRepositoryImpl.swift */; };
+		AB921E752790E03000D4C150 /* ToDoRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB921E742790E03000D4C150 /* ToDoRealm.swift */; };
+		AB921E772790E05900D4C150 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB921E762790E05900D4C150 /* ToDo.swift */; };
+		AB921E7B2790E30000D4C150 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB921E7A2790E30000D4C150 /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,11 @@
 		7560482E2761665700C47A54 /* ToDoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAppUITests.swift; sourceTree = "<group>"; };
 		756048302761665700C47A54 /* ToDoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F2AD475D20FB33C6B01EA9B /* Pods-ToDoApp-ToDoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp-ToDoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ToDoApp-ToDoAppUITests/Pods-ToDoApp-ToDoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB921E702790E01400D4C150 /* ToDoUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoUseCaseImpl.swift; sourceTree = "<group>"; };
+		AB921E722790E01E00D4C150 /* ToDoRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRepositoryImpl.swift; sourceTree = "<group>"; };
+		AB921E742790E03000D4C150 /* ToDoRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRealm.swift; sourceTree = "<group>"; };
+		AB921E762790E05900D4C150 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		AB921E7A2790E30000D4C150 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		BA880BD24C67B918CDBF02E6 /* Pods-ToDoApp-ToDoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp-ToDoAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ToDoApp-ToDoAppUITests/Pods-ToDoApp-ToDoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF8F6C12E6485C2B9887FD85 /* Pods-ToDoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ToDoAppTests/Pods-ToDoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C81B9734B4F242EDE1E81E95 /* Pods_ToDoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +125,6 @@
 				BF8F6C12E6485C2B9887FD85 /* Pods-ToDoAppTests.debug.xcconfig */,
 				5272AE70894E17FF94EA85BB /* Pods-ToDoAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +216,10 @@
 		7560480C2761665600C47A54 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				AB921E792790E2F400D4C150 /* Manager */,
+				AB921E6F2790DFF300D4C150 /* Entities */,
+				AB921E6E2790DFEB00D4C150 /* Repositories */,
+				AB921E6D2790DFE600D4C150 /* UseCases */,
 				754E982A2785988E00CB579B /* ToDoList */,
 				754E982F278598DD00CB579B /* AdditionalToDo */,
 				754E98342785991B00CB579B /* EditToDo */,
@@ -233,6 +246,47 @@
 				756048302761665700C47A54 /* ToDoAppUITestsLaunchTests.swift */,
 			);
 			path = ToDoAppUITests;
+			sourceTree = "<group>";
+		};
+		AB921E6D2790DFE600D4C150 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				AB921E702790E01400D4C150 /* ToDoUseCaseImpl.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		AB921E6E2790DFEB00D4C150 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AB921E722790E01E00D4C150 /* ToDoRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AB921E6F2790DFF300D4C150 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AB921E762790E05900D4C150 /* ToDo.swift */,
+				AB921E782790E0D400D4C150 /* Realm */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		AB921E782790E0D400D4C150 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				AB921E742790E03000D4C150 /* ToDoRealm.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		AB921E792790E2F400D4C150 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AB921E7A2790E30000D4C150 /* RealmManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		C4C011CF820246A61CABC53A /* Frameworks */ = {
@@ -491,7 +545,12 @@
 				754E983C2787D98A00CB579B /* ToDoListTableViewCell.swift in Sources */,
 				754E98402788441600CB579B /* Identifierable.swift in Sources */,
 				7560480E2761665600C47A54 /* AppDelegate.swift in Sources */,
+				AB921E712790E01400D4C150 /* ToDoUseCaseImpl.swift in Sources */,
+				AB921E7B2790E30000D4C150 /* RealmManager.swift in Sources */,
 				754E982D278598B900CB579B /* ToDoListViewController.swift in Sources */,
+				AB921E752790E03000D4C150 /* ToDoRealm.swift in Sources */,
+				AB921E732790E01E00D4C150 /* ToDoRepositoryImpl.swift in Sources */,
+				AB921E772790E05900D4C150 /* ToDo.swift in Sources */,
 				756048102761665600C47A54 /* SceneDelegate.swift in Sources */,
 				754E98322785990200CB579B /* AdditionalToDoViewController.swift in Sources */,
 			);
