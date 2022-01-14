@@ -8,7 +8,7 @@
 import UIKit
 
 final class ToDoListViewController: UIViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var additionalButton: UIButton!
     
@@ -68,7 +68,10 @@ extension ToDoListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListTableViewCell.identifier, for: indexPath) as? ToDoListTableViewCell else { fatalError("ToDoListTableViewCellがありません") }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ToDoListTableViewCell.identifier,
+            for: indexPath
+        ) as? ToDoListTableViewCell else { fatalError("ToDoListTableViewCellがありません") }
         cell.configure(todoText: todos[indexPath.item].text)
         return cell
     }
@@ -79,7 +82,9 @@ extension ToDoListViewController: UITableViewDataSource {
 extension ToDoListViewController: AdditionalToDoVCDelegate {
     
     func onClickedAdditionalButton() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 }
@@ -88,7 +93,9 @@ extension ToDoListViewController: AdditionalToDoVCDelegate {
 extension ToDoListViewController: EditToDoVCDelegate {
     
     func onClickedEditButton() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 }
@@ -111,5 +118,5 @@ extension ToDoListViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
 }
